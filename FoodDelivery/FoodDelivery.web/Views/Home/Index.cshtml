@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_PublicLayout";
+}
+
+<div style="background: #1ba693;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 text-white" style="width:100%">
+                <div class="pt-5 pb-5">
+                    <h1>Foof Deivery Online Ordering</h1>
+                    <p class="pb-4">
+                        Yummy pizza Burger other item  delivered fast at your door step!
+                    </p>
+                    <p>
+                        <a href="#heading" class="btn btn-primary">ORDER ONLINE NOW</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 pt-2 pb-2">
+                <img src="~/photo/Fast-food-Deliery.jpg" class="img-fluid" />
+
+                @* <img src="~/images/pizza-header.png" class="img-fluid" />*@
+            </div>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("Menu")
+
+@*<partial name="_PizzaMenu"/>*@
