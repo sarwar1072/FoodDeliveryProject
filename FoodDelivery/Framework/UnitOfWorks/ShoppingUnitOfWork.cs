@@ -4,7 +4,6 @@ using Framework.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace Framework.UnitOfworks
 {
     public class ShoppingUnitOfWork : UnitOfWork, IShoppingUnitOfWork
@@ -14,12 +13,15 @@ namespace Framework.UnitOfworks
         public IItemRepository ItemRepository { get; set; }
         public  IItemTypeRepository ItemTypeRepository { get; set; }
         public IOrderRepository OrderRepository { get; set; }
+        public ICartItemRepository CartItemRepository { get; set; }
         public ShoppingUnitOfWork(ShopingContext context,
-            ICartRepository cartRepository
-            ,ICategoryRepository categoryRepository
-            , IItemRepository itemRepository
-            , IItemTypeRepository itemTypeRepository,
-           IOrderRepository orderRepository )
+            ICartRepository cartRepository,
+            ICategoryRepository categoryRepository,
+            IItemRepository itemRepository,
+            IItemTypeRepository itemTypeRepository,
+           IOrderRepository orderRepository ,
+           
+           ICartItemRepository cartItemRepository)
             : base(context)
         {
             CartRepository = cartRepository;
@@ -27,6 +29,7 @@ namespace Framework.UnitOfworks
             ItemRepository = itemRepository;
             ItemTypeRepository = itemTypeRepository;
             OrderRepository = orderRepository;
+            CartItemRepository = cartItemRepository;
         }
     }
 }

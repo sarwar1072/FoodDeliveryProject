@@ -16,6 +16,7 @@ namespace Framework.UnitOfworks
         IItemRepository ItemRepository { get; set; }
         IItemTypeRepository ItemTypeRepository { get; set; }
         IOrderRepository OrderRepository { get; set; }
+        ICartItemRepository CartItemRepository { get; set; }
 
     }
 }
