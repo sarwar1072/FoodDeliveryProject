@@ -35,6 +35,9 @@ namespace FoodDelivery.web
             builder.RegisterType<FileHelper>().As<IFileHelper>()
                 .InstancePerLifetimeScope();
 
+            //builder.RegisterType<Cart>().As<IFileHelper>()
+            //  .InstancePerLifetimeScope();
+
             base.Load(builder);
         }
     }

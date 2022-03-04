@@ -5,6 +5,7 @@
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+		<PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.5" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />

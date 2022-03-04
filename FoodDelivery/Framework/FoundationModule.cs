@@ -42,6 +42,10 @@ namespace Framework
               .InstancePerLifetimeScope();
             builder.RegisterType<CatalogueServices>().As<ICatalogueServices>()
              .InstancePerLifetimeScope();
+            builder.RegisterType<CartService>().As<ICartService>()
+            .InstancePerLifetimeScope();
+            builder.RegisterType<CartItemRepository>().As<ICartItemRepository>()
+            .InstancePerLifetimeScope();
 
             base.Load(builder);
         }
