@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using FoodDelivery.web.Areas.Admin.Models;
 using FoodDelivery.web.Models;
+using Framework.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -35,8 +36,8 @@ namespace FoodDelivery.web
             builder.RegisterType<FileHelper>().As<IFileHelper>()
                 .InstancePerLifetimeScope();
 
-            //builder.RegisterType<Cart>().As<IFileHelper>()
-            //  .InstancePerLifetimeScope();
+            builder.RegisterType<CartService>().As<ICartService>()
+              .InstancePerLifetimeScope();
 
             base.Load(builder);
         }

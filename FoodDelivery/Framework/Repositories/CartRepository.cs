@@ -27,7 +27,7 @@ namespace Framework.Repositories
         public Cart GetCart(int CartId)
         {
 
-            return shopingContext.Carts.Include("Items").Where(c => c.Id == CartId && c.IsActive == true).FirstOrDefault();
+            return shopingContext.Carts.Include(x=>x.Items).Where(c=>c.Id==CartId && c.IsActive == true).FirstOrDefault();
         }
 
         public int DeleteItem(int cartId, int itemId)
