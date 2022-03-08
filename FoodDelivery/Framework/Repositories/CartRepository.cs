@@ -12,14 +12,14 @@ namespace Framework.Repositories
 {
    public class CartRepository:Repository<Cart,int ,ShopingContext>,ICartRepository
     {
-        private ShopingContext shopingContext 
-        {
-            get 
-            {
-                return _dbContext as ShopingContext;
-            }
+        //private ShopingContext shopingContext 
+        //{
+        //    get 
+        //    {
+        //        return _dbContext as ShopingContext;
+        //    }
                 
-        }
+        //}
         public CartRepository(ShopingContext shopingContext):base(shopingContext)
         {
 
@@ -27,16 +27,21 @@ namespace Framework.Repositories
         public Cart GetCart(int CartId)
         {
 
-            return shopingContext.Carts.Include(x=>x.Items).Where(c=>c.Id==CartId && c.IsActive == true).FirstOrDefault();
+            return _dbContext.Carts.Include(x=>x.Items).Where(c=>c.Id==CartId && c.IsActive == true).FirstOrDefault();
         }
+
+        //public Cart Get(int id)
+        //{
+        //    return _dbContext.Carts.Include(x => x.Items).Where(c => c.Id == id && c.IsActive == true).FirstOrDefault();
+        //}
 
         public int DeleteItem(int cartId, int itemId)
         {
-            var item = shopingContext.CartItems.Where(ci => ci.CartId == cartId && ci.Id == itemId).FirstOrDefault();
+            var item = _dbContext.CartItems.Where(ci => ci.CartId == cartId && ci.Id == itemId).FirstOrDefault();
             if (item != null)
             {
-                shopingContext.CartItems.Remove(item);
-                return shopingContext.SaveChanges();
+                _dbContext.CartItems.Remove(item);
+                return _dbContext.SaveChanges();
             }
             else
             {
@@ -64,7 +69,7 @@ namespace Framework.Repositories
                     }
                 }
                 if (flag)
-                    return shopingContext.SaveChanges();
+                    return _dbContext.SaveChanges();
             }
             return 0;
         }
@@ -73,20 +78,20 @@ namespace Framework.Repositories
         {
             Cart cart = GetCart(cartId);
             cart.UserId = userId;
-            return shopingContext.SaveChanges();
+            return _dbContext.SaveChanges();
         }
 
         public CartModel GetCartDetails(int CartId)
         {
-            var model = (from cart in shopingContext.Carts
+            var model = (from cart in _dbContext.Carts
                          where cart.Id == CartId && cart.IsActive == true
                          select new CartModel
                          {
                              Id = cart.Id,
                              UserId = cart.UserId,
                              CreatedDate = cart.CreatedDate,
-                             Items = (from cartItem in shopingContext.CartItems
-                                      join item in shopingContext.Items
+                             Items = (from cartItem in _dbContext.CartItems
+                                      join item in _dbContext.Items
                                       on cartItem.ItemId equals item.Id
                                       where cartItem.CartId == CartId
                                       select new ItemModel

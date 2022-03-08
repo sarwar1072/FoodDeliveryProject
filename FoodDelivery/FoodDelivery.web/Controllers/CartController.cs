@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-
 namespace FoodDelivery.web.Controllers
 {
     public class CartController : BaseController
@@ -28,6 +27,7 @@ namespace FoodDelivery.web.Controllers
                 else
                 {
                     Id = int.Parse(CId);
+                   
                 }
                 return Id;
             }
