@@ -8,13 +8,13 @@ using System.Text;
 
 namespace Framework.Repositories
 {
-   public  interface ICartRepository:IRepository<Cart,int,ShopingContext>
+   public  interface ICartRepository:IRepository<Cart,Guid,ShopingContext>
     {
         //Cart GetCart(int CartId);
-        Cart GetCart(int CartId);
-        CartModel GetCartDetails(int CartId);
-        int DeleteItem(int cartId, int itemId);
-        int UpdateQuantity(int cartId, int itemId, int Quantity);
-        int UpdateCart(int cartId, Guid userId);
+        Cart GetCart(Guid CartId);
+        CartModel GetCartDetails(Guid CartId);
+        int DeleteItem(Guid cartId, int itemId);
+        int UpdateQuantity(Guid cartId, int itemId, int Quantity);
+        int UpdateCart(Guid cartId, Guid userId);
     }
 }

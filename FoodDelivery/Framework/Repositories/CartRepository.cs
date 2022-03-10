@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Framework.Repositories
 {
-   public class CartRepository:Repository<Cart,int ,ShopingContext>,ICartRepository
+   public class CartRepository:Repository<Cart,Guid ,ShopingContext>,ICartRepository
     {
         //private ShopingContext shopingContext 
         //{
@@ -24,7 +24,7 @@ namespace Framework.Repositories
         {
 
         }
-        public Cart GetCart(int CartId)
+        public Cart GetCart(Guid CartId)
         {
 
             return _dbContext.Carts.Include(x=>x.Items).Where(c=>c.Id==CartId && c.IsActive == true).FirstOrDefault();
@@ -35,7 +35,7 @@ namespace Framework.Repositories
         //    return _dbContext.Carts.Include(x => x.Items).Where(c => c.Id == id && c.IsActive == true).FirstOrDefault();
         //}
 
-        public int DeleteItem(int cartId, int itemId)
+        public int DeleteItem(Guid cartId, int itemId)
         {
             var item = _dbContext.CartItems.Where(ci => ci.CartId == cartId && ci.Id == itemId).FirstOrDefault();
             if (item != null)
@@ -49,7 +49,7 @@ namespace Framework.Repositories
             }
         }
 
-        public int UpdateQuantity(int cartId, int itemId, int Quantity)
+        public int UpdateQuantity(Guid cartId, int itemId, int Quantity)
         {
             bool flag = false;
             var cart = GetCart(cartId);
@@ -74,14 +74,14 @@ namespace Framework.Repositories
             return 0;
         }
 
-        public int UpdateCart(int cartId,Guid userId)
+        public int UpdateCart(Guid cartId,Guid userId)
         {
             Cart cart = GetCart(cartId);
             cart.UserId = userId;
             return _dbContext.SaveChanges();
         }
 
-        public CartModel GetCartDetails(int CartId)
+        public CartModel GetCartDetails(Guid CartId)
         {
             var model = (from cart in _dbContext.Carts
                          where cart.Id == CartId && cart.IsActive == true

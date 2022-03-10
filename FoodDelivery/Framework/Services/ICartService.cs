@@ -8,11 +8,11 @@ namespace Framework.Services
 {
     public interface ICartService
     {
-        int GetCartCount(int cartId);
-        CartModel GetCartDetails(int cartId);
-        Cart AddItem(Guid UserId, int CartId, int ItemId, decimal UnitPrice, int Quantity);
-        int DeleteItem(int cartId, int ItemId);
-        int UpdateQuantity(int cartId, int id, int quantity);
-        int UpdateCart(int CartId, Guid UserId);
+        int GetCartCount(Guid cartId);
+        CartModel GetCartDetails(Guid cartId);
+        Cart AddItem(Guid UserId, Guid CartId, int ItemId, decimal UnitPrice, int Quantity);
+        int DeleteItem(Guid cartId, int ItemId);
+        int UpdateQuantity(Guid cartId, int id, int quantity);
+        int UpdateCart(Guid CartId, Guid UserId);
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Framework.Entities
 {
-    public class Cart : IEntity<int>
+    public class Cart : IEntity<Guid>
     {
         public Cart()
         {
@@ -13,7 +13,7 @@ namespace Framework.Entities
             CreatedDate = DateTime.Now;
             IsActive = true;
         }
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public Guid UserId { get; set; }
         public DateTime CreatedDate { get; set; }
         public virtual List<CartItem> Items { get; private set; }

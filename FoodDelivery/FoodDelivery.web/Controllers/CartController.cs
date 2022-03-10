@@ -13,21 +13,20 @@ namespace FoodDelivery.web.Controllers
     public class CartController : BaseController
     {
         ICartService _cartService;
-        int CartId
+        Guid CartId
         {
             get
             {
-                int Id;
+                Guid Id;
                 string CId = Request.Cookies["CId"];
                 if (string.IsNullOrEmpty(CId))
                 {
-                    Id=new int();
+                    Id = Guid.NewGuid();
                     Response.Cookies.Append("CId", Id.ToString());
                 }
                 else
                 {
-                    Id = int.Parse(CId);
-                   
+                    Id = Guid.Parse(CId);
                 }
                 return Id;
             }

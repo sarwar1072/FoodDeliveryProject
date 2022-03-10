@@ -22,7 +22,7 @@ namespace Framework.Services
         //        //Include("Items").Where(c => c.Id == CartId && c.IsActive == true).FirstOrDefault();
         //}
 
-       public Cart AddItem(Guid UserId, int CartId, int ItemId, decimal UnitPrice, int Quantity)
+       public Cart AddItem(Guid UserId, Guid CartId, int ItemId, decimal UnitPrice, int Quantity)
         {
             try
             {
@@ -67,18 +67,18 @@ namespace Framework.Services
             }
         }
 
-        public int DeleteItem(int cartId, int ItemId)
+        public int DeleteItem(Guid cartId, int ItemId)
         {
             return _shopingUnitOfWork.CartRepository.DeleteItem(cartId, ItemId);
         }
 
-        public int GetCartCount(int cartId)
+        public int GetCartCount(Guid cartId)
         {
             var cart = _shopingUnitOfWork.CartRepository.GetCart(cartId);
             return cart != null ? cart.Items.Count() : 0;
         }
 
-        public CartModel GetCartDetails(int cartId)
+        public CartModel GetCartDetails(Guid cartId)
         {
             var model = _shopingUnitOfWork.CartRepository.GetCartDetails(cartId);
             if (model != null && model.Items.Count > 0)
@@ -97,12 +97,12 @@ namespace Framework.Services
             return model;
         }
 
-        public int UpdateCart(int CartId, Guid UserId)
+        public int UpdateCart(Guid CartId, Guid UserId)
         {
             return _shopingUnitOfWork.CartRepository.UpdateCart(CartId, UserId);
         }
 
-        public int UpdateQuantity(int cartId, int id, int quantity)
+        public int UpdateQuantity(Guid cartId, int id, int quantity)
         {
             return _shopingUnitOfWork.CartRepository.UpdateQuantity(cartId, id, quantity);
         }

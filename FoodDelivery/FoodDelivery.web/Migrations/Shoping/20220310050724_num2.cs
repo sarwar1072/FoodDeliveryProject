@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FoodDelivery.web.Migrations.Shoping
 {
-    public partial class newForshctx : Migration
+    public partial class num2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,8 +29,7 @@ namespace FoodDelivery.web.Migrations.Shoping
                 name: "Carts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false)
@@ -114,7 +113,7 @@ namespace FoodDelivery.web.Migrations.Shoping
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CartId = table.Column<int>(nullable: false),
+                    CartId = table.Column<Guid>(nullable: false),
                     ItemId = table.Column<int>(nullable: false),
                     UnitPrice = table.Column<decimal>(nullable: false),
                     Quantity = table.Column<int>(nullable: false)

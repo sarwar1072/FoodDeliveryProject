@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodDelivery.web.Migrations.Shoping
 {
     [DbContext(typeof(ShopingContext))]
-    [Migration("20220215024305_newForshctx")]
-    partial class newForshctx
+    [Migration("20220310050724_num2")]
+    partial class num2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,10 +53,9 @@ namespace FoodDelivery.web.Migrations.Shoping
 
             modelBuilder.Entity("Framework.Entities.Cart", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -79,8 +78,8 @@ namespace FoodDelivery.web.Migrations.Shoping
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CartId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CartId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ItemId")
                         .HasColumnType("int");

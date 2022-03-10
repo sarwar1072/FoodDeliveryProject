@@ -21,7 +21,7 @@ namespace Framework.Entities
         }
 
         public int Id { get; set; }
-        public int CartId { get; set; }
+        public Guid CartId { get; set; }
         public int ItemId { get; private set; }
         public decimal UnitPrice { get; private set; }
         public int Quantity { get; set; }
