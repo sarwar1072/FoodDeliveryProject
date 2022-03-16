@@ -7,19 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 namespace Framework.Repositories
 {
    public class CartRepository:Repository<Cart,Guid ,ShopingContext>,ICartRepository
-    {
-        //private ShopingContext shopingContext 
-        //{
-        //    get 
-        //    {
-        //        return _dbContext as ShopingContext;
-        //    }
-                
-        //}
+    {       
         public CartRepository(ShopingContext shopingContext):base(shopingContext)
         {
 
@@ -29,10 +20,9 @@ namespace Framework.Repositories
 
             return _dbContext.Carts.Include(x=>x.Items).Where(c=>c.Id==CartId && c.IsActive == true).FirstOrDefault();
         }
-
         //public Cart Get(int id)
         //{
-        //    return _dbContext.Carts.Include(x => x.Items).Where(c => c.Id == id && c.IsActive == true).FirstOrDefault();
+        //    return _dbContext.Carts.Include(x =x.> x.Items).Where(c => c.Id == id && c.IsActive == true).FirstOrDefault();
         //}
 
         public int DeleteItem(Guid cartId, int itemId)

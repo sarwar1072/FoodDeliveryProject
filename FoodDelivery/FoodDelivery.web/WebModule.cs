@@ -27,8 +27,8 @@ namespace FoodDelivery.web
 
         protected override void Load(ContainerBuilder builder)
         {
-            //    builder.RegisterType<ProductUpdateModel>().AsSelf();
-              builder.RegisterType<ItemModel>().AsSelf();
+            // builder.RegisterType<ICartService>().AsSelf();
+            builder.RegisterType<ItemModel>().AsSelf();
             builder.RegisterType<AuthenticationService>().As<IAuthenticationService>()
                      .InstancePerLifetimeScope();
             builder.RegisterType<UserAccessor>().As<IUserAccessor>()
@@ -36,8 +36,8 @@ namespace FoodDelivery.web
             builder.RegisterType<FileHelper>().As<IFileHelper>()
                 .InstancePerLifetimeScope();
 
-            builder.RegisterType<CartService>().As<ICartService>()
-              .InstancePerLifetimeScope();
+            //builder.RegisterType<ICartService>().As
+            //  .InstancePerLifetimeScope();
 
             base.Load(builder);
         }

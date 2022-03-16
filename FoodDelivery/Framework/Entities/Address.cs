@@ -3,14 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-
 namespace Framework.Entities
 {
     public class Address: IEntity<int>
     {
         public Address()
         {
-
         }
         public Address(string street, string locality, string city, string zipcode)
         {

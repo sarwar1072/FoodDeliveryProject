@@ -61,6 +61,5 @@ namespace Framework.Contexts
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Address> Address { get; set; }
         public DbSet<PaymentDetails> PaymentDetails { get; set; }
-
     }
 }

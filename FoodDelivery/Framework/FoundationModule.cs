@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Framework.Contexts;
+using Framework.Model;
 using Framework.Repositories;
 using Framework.Services;
 using Framework.UnitOfworks;
@@ -40,12 +41,17 @@ namespace Framework
                 .InstancePerLifetimeScope();
             builder.RegisterType<OrderRepository>().As<IOrderRepository>()
               .InstancePerLifetimeScope();
+
             builder.RegisterType<CatalogueServices>().As<ICatalogueServices>()
              .InstancePerLifetimeScope();
             builder.RegisterType<CartService>().As<ICartService>()
             .InstancePerLifetimeScope();
             builder.RegisterType<CartItemRepository>().As<ICartItemRepository>()
             .InstancePerLifetimeScope();
+
+            // builder.RegisterType<CartModel>().AsSelf();
+            //builder.RegisterType<ItemModel>().AsSelf();
+
 
             base.Load(builder);
         }

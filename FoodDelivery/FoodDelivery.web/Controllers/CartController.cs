@@ -3,6 +3,7 @@ using Framework.Entities;
 using Framework.Model;
 using Framework.Services;
 using Microsoft.AspNetCore.Mvc;
+//using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace FoodDelivery.web.Controllers
             CartModel cart = _cartService.GetCartDetails(CartId);
             if (CurrentUser != null && cart != null)
             {
-              //  TempData.Set("Cart", cart);
+                TempData.Put("Cart", cart);
                 _cartService.UpdateCart(cart.Id, CurrentUser.Id);
             }
             return View(cart);
@@ -80,5 +81,17 @@ namespace FoodDelivery.web.Controllers
             int count = _cartService.GetCartCount(CartId);
             return Json(count);
         }
+
+        public IActionResult CheckOut()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CheckOut(Address address)
+        {
+            TempData.Put("Address", address);
+            return RedirectToAction("Index", "Payment");
+        }
+
     }
 }
