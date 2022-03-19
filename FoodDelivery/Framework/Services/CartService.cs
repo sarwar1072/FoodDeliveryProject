@@ -46,7 +46,7 @@ namespace Framework.Services
                     if (item != null)
                     {
                         item.Quantity += Quantity;
-                        _shopingUnitOfWork.CartItemRepository.Edit(item);
+                        _shopingUnitOfWork.CartItemRepository.Add(item);
                         _shopingUnitOfWork.Save();
                     }
                     else
@@ -55,7 +55,8 @@ namespace Framework.Services
                         item.CartId = cart.Id;
                         cart.Items.Add(item);
 
-                        _shopingUnitOfWork.CartItemRepository.Edit(item);
+                       // little change
+                        _shopingUnitOfWork.CartItemRepository.Add(item);
                         _shopingUnitOfWork.Save();
                     }
                 }

@@ -42,7 +42,7 @@ namespace FoodDelivery.web.Controllers
             CartModel cart = _cartService.GetCartDetails(CartId);
             if (CurrentUser != null && cart != null)
             {
-                TempData.Put("Cart", cart);
+                TempData.Set("Cart", cart);
                 _cartService.UpdateCart(cart.Id, CurrentUser.Id);
             }
             return View(cart);
@@ -89,9 +89,8 @@ namespace FoodDelivery.web.Controllers
         [HttpPost]
         public IActionResult CheckOut(Address address)
         {
-            TempData.Put("Address", address);
+            TempData.Set("Address", address);
             return RedirectToAction("Index", "Payment");
         }
-
     }
 }
