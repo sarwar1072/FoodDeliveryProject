@@ -37,6 +37,7 @@ namespace Framework.Services
 
                     item.CartId = cart.Id;
                     cart.Items.Add(item);
+
                     _shopingUnitOfWork.CartRepository.Add(cart);
                     _shopingUnitOfWork.Save();
                 }
