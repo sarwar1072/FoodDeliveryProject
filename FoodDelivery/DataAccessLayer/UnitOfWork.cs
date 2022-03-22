@@ -13,5 +13,12 @@ namespace DataAccessLayer
 
         public void Dispose() => _dbContext?.Dispose();
         public void Save() => _dbContext?.SaveChanges();
+
+        public int SaveChanges()
+        {
+            return _dbContext.SaveChanges();
+        }
+
+
     }
 }

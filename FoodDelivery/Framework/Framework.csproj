@@ -5,6 +5,7 @@
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+		<PackageReference Include="RazorPay.Core" Version="1.0.2" />
 		<PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.5" />
 	</ItemGroup>
 	<ItemGroup>

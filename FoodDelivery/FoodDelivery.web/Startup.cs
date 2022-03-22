@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Framework;
 using Framework.Contexts;
+using Framework.Model;
 using Membership;
 using Membership.BusinessObjects;
 using Membership.Contexts;
@@ -65,6 +66,8 @@ namespace FoodDelivery.web
 
             services.AddDbContext<ShopingContext>(options =>
                 options.UseSqlServer(connectionString, b => b.MigrationsAssembly(migrationAssemblyName)));
+
+            services.Configure<RazorPayConfig>(Configuration.GetSection("RazorPayConfig"));
 
             // Identity customization started here
             services

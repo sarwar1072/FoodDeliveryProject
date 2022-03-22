@@ -14,6 +14,9 @@ namespace Framework.UnitOfworks
         public  IItemTypeRepository ItemTypeRepository { get; set; }
         public IOrderRepository OrderRepository { get; set; }
         public ICartItemRepository CartItemRepository { get; set; }
+
+        public IPaymentDetailsRepository PaymentDetailsRepository { get; set; }
+
         public ShoppingUnitOfWork(ShopingContext context,
             ICartRepository cartRepository,
             ICategoryRepository categoryRepository,
@@ -21,7 +24,8 @@ namespace Framework.UnitOfworks
             IItemTypeRepository itemTypeRepository,
            IOrderRepository orderRepository ,
            
-           ICartItemRepository cartItemRepository)
+           ICartItemRepository cartItemRepository,
+           IPaymentDetailsRepository paymentDetailsRepository)
             : base(context)
         {
             CartRepository = cartRepository;
@@ -30,6 +34,7 @@ namespace Framework.UnitOfworks
             ItemTypeRepository = itemTypeRepository;
             OrderRepository = orderRepository;
             CartItemRepository = cartItemRepository;
+            PaymentDetailsRepository = paymentDetailsRepository;
         }
     }
 }

@@ -18,5 +18,8 @@ namespace Framework.UnitOfworks
         IOrderRepository OrderRepository { get; set; }
         ICartItemRepository CartItemRepository { get; set; }
 
+         IPaymentDetailsRepository PaymentDetailsRepository { get; set; }
+
+
     }
 }

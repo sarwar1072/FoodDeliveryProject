@@ -49,8 +49,12 @@ namespace Framework
             builder.RegisterType<CartItemRepository>().As<ICartItemRepository>()
             .InstancePerLifetimeScope();
 
-            // builder.RegisterType<CartModel>().AsSelf();
-            //builder.RegisterType<ItemModel>().AsSelf();
+             builder.RegisterType<PaymentDetailsRepository>().As<IPaymentDetailsRepository>()
+            .InstancePerLifetimeScope();
+
+            builder.RegisterType<PaymentService>().As<IPaymentService>()
+           .InstancePerLifetimeScope();
+            builder.RegisterType<RazorPayConfig>().AsSelf();
 
 
             base.Load(builder);
