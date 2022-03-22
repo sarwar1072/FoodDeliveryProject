@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Framework.Repositories
 {
-   public class OrderRepository:Repository<Order,int,ShopingContext>,IOrderRepository
+   public class OrderRepository:Repository<Order,string,ShopingContext>,IOrderRepository
     {
         public OrderRepository(ShopingContext shopingContext):base(shopingContext)
         {

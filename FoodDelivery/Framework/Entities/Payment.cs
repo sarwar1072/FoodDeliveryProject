@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Framework.Entities
 {
-    public class PaymentDetails : IEntity<int>
+    public class PaymentDetails : IEntity<string>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string TransactionId { get; set; }
         public decimal Tax { get; set; }
         public string Currency { get; set; }

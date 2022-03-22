@@ -70,8 +70,7 @@ namespace FoodDelivery.web.Migrations.Shoping
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
                     PaymentId = table.Column<string>(nullable: true),
                     Street = table.Column<string>(nullable: true),
@@ -90,8 +89,7 @@ namespace FoodDelivery.web.Migrations.Shoping
                 name: "PaymentDetails",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(nullable: false),
                     TransactionId = table.Column<string>(nullable: true),
                     Tax = table.Column<decimal>(nullable: false),
                     Currency = table.Column<string>(nullable: true),
@@ -169,15 +167,14 @@ namespace FoodDelivery.web.Migrations.Shoping
                     UnitPrice = table.Column<decimal>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     Total = table.Column<decimal>(nullable: false),
-                    OrderId = table.Column<string>(nullable: true),
-                    OrderId1 = table.Column<int>(nullable: true)
+                    OrderId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OrderItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderItems_Orders_OrderId1",
-                        column: x => x.OrderId1,
+                        name: "FK_OrderItems_Orders_OrderId",
+                        column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -199,9 +196,9 @@ namespace FoodDelivery.web.Migrations.Shoping
                 column: "ItemTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_OrderId1",
+                name: "IX_OrderItems_OrderId",
                 table: "OrderItems",
-                column: "OrderId1");
+                column: "OrderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

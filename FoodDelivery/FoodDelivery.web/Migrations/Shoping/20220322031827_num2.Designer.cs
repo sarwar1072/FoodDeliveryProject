@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodDelivery.web.Migrations.Shoping
 {
     [DbContext(typeof(ShopingContext))]
-    [Migration("20220310050724_num2")]
+    [Migration("20220322031827_num2")]
     partial class num2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -166,10 +166,8 @@ namespace FoodDelivery.web.Migrations.Shoping
 
             modelBuilder.Entity("Framework.Entities.Order", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
@@ -211,10 +209,7 @@ namespace FoodDelivery.web.Migrations.Shoping
                         .HasColumnType("int");
 
                     b.Property<string>("OrderId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OrderId1")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -227,17 +222,15 @@ namespace FoodDelivery.web.Migrations.Shoping
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId1");
+                    b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("Framework.Entities.PaymentDetails", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("CartId")
                         .HasColumnType("uniqueidentifier");
@@ -299,7 +292,7 @@ namespace FoodDelivery.web.Migrations.Shoping
                 {
                     b.HasOne("Framework.Entities.Order", "Order")
                         .WithMany("OrderItems")
-                        .HasForeignKey("OrderId1");
+                        .HasForeignKey("OrderId");
                 });
 #pragma warning restore 612, 618
         }

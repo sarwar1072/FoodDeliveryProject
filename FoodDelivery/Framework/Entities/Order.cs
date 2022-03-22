@@ -5,13 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace Framework.Entities
 {
-    public class Order : IEntity<int>
+    public class Order : IEntity<string>
     {
         public Order()
         {
             OrderItems = new HashSet<OrderItem>();
         }
-        public int Id { get; set; }
+        public string Id { get; set; }
         public Guid UserId { get; set; }
         public string PaymentId { get; set; }
         public string Street { get; set; }

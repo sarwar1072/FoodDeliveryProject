@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Framework.Repositories
 {
-    public interface IOrderRepository: IRepository<Order,int,ShopingContext>
+    public interface IOrderRepository: IRepository<Order,string,ShopingContext>
     {
     }
 }
