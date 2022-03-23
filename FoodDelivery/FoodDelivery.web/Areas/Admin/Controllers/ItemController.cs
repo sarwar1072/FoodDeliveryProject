@@ -25,10 +25,6 @@ namespace FoodDelivery.web.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var data = _catalogueServices.GetItems();
-            //var model = new ItemModel();
-            //model.get().ToList();
-            //var model = Startup.AutofacContainer.Resolve<ItemModel>();
-            //var data = model.get();
             return View(data);
         }
 
