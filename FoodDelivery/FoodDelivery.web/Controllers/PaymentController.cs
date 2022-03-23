@@ -17,11 +17,12 @@ namespace FoodDelivery.web.Controllers
 
         private readonly IOptions<RazorPayConfig> _razorPayConfig;
         private readonly IPaymentService _paymentService;
-        public PaymentController(IPaymentService paymentService, IOptions<RazorPayConfig> razorPayConfig, IUserAccessor userAccessor) : base(userAccessor)
+        private readonly IOrderService _orderService;
+        public PaymentController(IPaymentService paymentService, IOptions<RazorPayConfig> razorPayConfig, IOrderService orderService, IUserAccessor userAccessor) : base(userAccessor)
         {
             _razorPayConfig = razorPayConfig;
             _paymentService = paymentService;
-            // _orderService = orderService;IOrderService orderService
+             _orderService = orderService;
         }
         public IActionResult Index()
         {
@@ -88,7 +89,7 @@ namespace FoodDelivery.web.Controllers
                             Response.Cookies.Append("CId", ""); //resettingg cartId in cookie
 
                             Address address = TempData.Get<Address>("Address");
-                            //_orderService.PlaceOrder(CurrentUser.Id, orderId, paymentId, cart, address);
+                           _orderService.PlaceOrder(CurrentUser.Id, orderId, paymentId, cart, address);
 
                             //TO DO: Send email
                             TempData.Set("PaymentDetails", model);

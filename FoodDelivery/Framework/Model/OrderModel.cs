@@ -12,8 +12,8 @@ namespace Framework.Model
         {
             Items = new List<ItemModel>();
         }
-        public int Id { get; set; }
-        public int PaymentId { get; set; }
+        public string Id { get; set; }
+        public string PaymentId { get; set; }
         public Guid UserId { get; set; }
         public string Currency { get; set; }
         public decimal Total { get; set; }

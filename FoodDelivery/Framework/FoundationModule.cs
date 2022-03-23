@@ -31,29 +31,40 @@ namespace Framework
 
             builder.RegisterType<CartRepository>().As<ICartRepository>()
                 .InstancePerLifetimeScope();
+
             builder.RegisterType<CategoryRepository>().As<ICategoryRepository>()
                 .InstancePerLifetimeScope();
+
             builder.RegisterType<ShoppingUnitOfWork>().As<IShoppingUnitOfWork>()
                 .InstancePerLifetimeScope();
+
             builder.RegisterType<ItemRepository>().As<IItemRepository>()
                 .InstancePerLifetimeScope();
+
             builder.RegisterType<ItemTypeRepository>().As<IItemTypeRepository>()
                 .InstancePerLifetimeScope();
+
             builder.RegisterType<OrderRepository>().As<IOrderRepository>()
               .InstancePerLifetimeScope();
 
             builder.RegisterType<CatalogueServices>().As<ICatalogueServices>()
              .InstancePerLifetimeScope();
+
             builder.RegisterType<CartService>().As<ICartService>()
             .InstancePerLifetimeScope();
+
             builder.RegisterType<CartItemRepository>().As<ICartItemRepository>()
             .InstancePerLifetimeScope();
 
              builder.RegisterType<PaymentDetailsRepository>().As<IPaymentDetailsRepository>()
             .InstancePerLifetimeScope();
 
+            builder.RegisterType<OrderService>().As<IOrderService>()
+             .InstancePerLifetimeScope();
+
             builder.RegisterType<PaymentService>().As<IPaymentService>()
            .InstancePerLifetimeScope();
+
             builder.RegisterType<RazorPayConfig>().AsSelf();
 
 

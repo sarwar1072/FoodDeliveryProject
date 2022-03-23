@@ -1,4 +1,5 @@
 ﻿using FoodDelivery.web.Models;
+using Membership.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,26 @@ namespace FoodDelivery.web.Areas.User.Controllers
     [Area("User")]
     public class BaseController : Controller
     {
-        public IActionResult Index()
+
+        public ApplicationUser CurrentUser
         {
-            return View();
+            get
+            {
+                if (User != null)
+                    return _userAccessor.GetUser();
+                else
+                    return null;
+            }
         }
+
+        IUserAccessor _userAccessor;
+        public BaseController(IUserAccessor userAccessor)
+        {
+            _userAccessor = userAccessor;
+        }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
     }
 }
