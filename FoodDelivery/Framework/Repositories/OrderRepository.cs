@@ -76,6 +76,5 @@ namespace Framework.Repositories
             pagingModel.TotalRows = itemCounts;
             return pagingModel;
         }
-
     }
 }

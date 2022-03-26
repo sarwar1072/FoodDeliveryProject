@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace FoodDelivery.web.Areas.Admin.Controllers
 {
-   
     public class DashboardController : BaseController
     {
         IOrderService _orderService;
@@ -16,7 +15,7 @@ namespace FoodDelivery.web.Areas.Admin.Controllers
         {
             _orderService = orderService;
         }
-        public IActionResult Index(int page = 1, int pageSize = 2)
+        public IActionResult Index(int page = 1, int pageSize = 4)
         {
             var orders = _orderService.GetOrderList(page, pageSize);
             return View(orders);
