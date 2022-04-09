@@ -10,16 +10,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                Id
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UnitPrice)
+                UnitPrice
             </th>
             <th>
                 Image
@@ -32,21 +32,23 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    @item.Id
+                   
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @item.Name
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @item.Description
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                    @item.UnitPrice
                 </td>
                 <td>
                     <img src="@item.ImageUrl" width="70" height="70" />
                 </td>
                 <td>
+                                      
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id, url = item.ImageUrl })
                 </td>

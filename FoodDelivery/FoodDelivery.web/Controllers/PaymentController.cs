@@ -18,7 +18,8 @@ namespace FoodDelivery.web.Controllers
         private readonly IOptions<RazorPayConfig> _razorPayConfig;
         private readonly IPaymentService _paymentService;
         private readonly IOrderService _orderService;
-        public PaymentController(IPaymentService paymentService, IOptions<RazorPayConfig> razorPayConfig, IOrderService orderService, IUserAccessor userAccessor) : base(userAccessor)
+        public PaymentController(IPaymentService paymentService, IOptions<RazorPayConfig> razorPayConfig, 
+            IOrderService orderService, IUserAccessor userAccessor) : base(userAccessor)
         {
             _razorPayConfig = razorPayConfig;
             _paymentService = paymentService;

@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Total)
         </dt>
         <dd class="col-sm-10">
-            ₹@Html.DisplayFor(model => model.GrandTotal)
+            ৳@Html.DisplayFor(model => model.GrandTotal)
         </dd>
     </dl>
     <table class="table">
@@ -61,13 +61,13 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        ₹@Html.DisplayFor(modelItem => item.UnitPrice)
+                        ৳@Html.DisplayFor(modelItem => item.UnitPrice)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Quantity)
                     </td>
                     <td>
-                        ₹@Html.DisplayFor(modelItem => item.Total)
+                        ৳@Html.DisplayFor(modelItem => item.Total)
                     </td>
                 </tr>
             }
@@ -82,7 +82,7 @@ else
     <div class="row">
         <div class="col-sm-12 mt-4">
             <p style="min-height:300px">
-                You haven't placed any order yet. Please search your pizza from the menu! <br><br>
+                You haven't placed any order yet. Please search your desired fast food item from the menu! <br><br>
                 <a href="/" class="btn btn-primary">Browse Menu</a>
             </p>
         </div>
