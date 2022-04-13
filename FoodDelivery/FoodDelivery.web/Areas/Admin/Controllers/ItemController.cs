@@ -85,7 +85,7 @@ namespace FoodDelivery.web.Areas.Admin.Controllers
             try
             {
                 if (model.File != null)
-                {
+                { 
                     _fileHelper.DeleteFile(model.ImageUrl);
                     model.ImageUrl = _fileHelper.UploadFile(model.File);
                 }
