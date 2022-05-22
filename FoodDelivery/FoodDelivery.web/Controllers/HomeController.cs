@@ -1,4 +1,5 @@
 ﻿using FoodDelivery.web.Models;
+using Framework.Contexts;
 using Framework.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace FoodDelivery.web.Controllers
 {
@@ -20,9 +22,9 @@ namespace FoodDelivery.web.Controllers
             _catalogueServices = catalogueServices;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            var items = _catalogueServices.GetItems();
+            var items = _catalogueServices.GetItems().ToPagedList(page ?? 1,4);
             return View(items);
         }
 

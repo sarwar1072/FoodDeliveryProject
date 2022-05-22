@@ -54,13 +54,11 @@ namespace FoodDelivery.web.Areas.Admin.Controllers
             }
             catch (Exception)
             {
-
             }
             ViewBag.Categories = _catalogueServices.GetCategories();
             ViewBag.ItemTypes = _catalogueServices.GetItemTypes();
             return View();
         }
-
         public IActionResult Edit(int id)
         {
             ViewBag.Categories = _catalogueServices.GetCategories();

@@ -1,4 +1,7 @@
-﻿@{
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<Framework.Entities.Item>
+@{
     ViewData["Title"] = "Home Page";
     Layout = "_PublicLayout";
 }
@@ -25,5 +28,10 @@
     </div>
 </div>
 @await Component.InvokeAsync("Menu")
+
+@*<div>
+        @Html.PagedListPager(Model, p => Href("/Home?page=" + p))
+    </div>*@
+
 
 @*<partial name="_PizzaMenu"/>*@

@@ -16,8 +16,7 @@ namespace Framework.Repositories
 
         }
         public Cart GetCart(Guid CartId)
-        {
-
+        {          
             return _dbContext.Carts.Include(x=>x.Items).Where(c=>c.Id==CartId && c.IsActive == true).FirstOrDefault();
         }
         //public Cart Get(int id)
