@@ -43,7 +43,7 @@ namespace FoodDelivery.web.Models
                 //Admin, User
                 //string role = "Admin";
 
-                string role = "User";
+                string role = "Admin";
                 var res = _userManager.AddToRoleAsync(user, role).Result;
                 if (res.Succeeded)
                 {
